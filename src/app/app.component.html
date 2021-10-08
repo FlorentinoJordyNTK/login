@@ -1,0 +1,87 @@
+  <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+ 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-md-auto gap-2">
+        <li class="nav-item rounded">
+          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill me-2"></i>Inicio</a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>Nosotros</a>
+        </li>
+        <li class="nav-item rounded">
+          <a class="nav-link" href="#"><i class="bi bi-telephone-fill me-2"></i>Contacto</a>
+        </li>
+        <li class="nav-item dropdown rounded">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill me-2"></i>Profile</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Cuenta</a></li>
+            <li><a class="dropdown-item" href="#">Link</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Ingresar</h3>
+			</div>
+			<div class="card-body">
+				<form (FormGroup)="loginForm" (ngSubmit)="onSubmit()">
+					<div class="input-group form-group mb-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" FromControlName="usuario" class="form-control" placeholder="Usuario" (ngClass)="{ 'is-invalid': submitted && f.usuario.errors }" />
+            <div *ngIf="submitted && f.usuario.errors" class="invalid-feedback">
+                <div *ngIf="f.usuario.errors.required">Username is required</div>
+            </div>
+					</div>
+
+					<div class="input-group form-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="Contraseña" formControlName="password" (ngClass)="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+					</div>
+					<div class="row align-items-center remember text-center">
+						<input type="checkbox">Recordar
+					</div>
+					<div class="form-group text-center">
+            <a class="btn login_btn float-right" routerLink="formulario">Login</a>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Tienes Cuenta activa?<a href="register">Registrarse</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Olvidaste tu contraseña?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
